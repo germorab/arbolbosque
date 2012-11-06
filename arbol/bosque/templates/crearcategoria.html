@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Categoria{% endblock %}
+
+{% block content %}
+
+<h4 align="center">Creacion de Categorias</h4>
+    <form style='margin:10;'>
+        Nombre de la Categoria: <input type="text" name="nombrecategoria" size="110" maxlength="100" id = "categorianombre"><br><br>
+        Descripcion: <br> <textarea cols="150" rows="15" name="descripcion" id = "categoriadesc">...</textarea><br><br>
+        <input type="button" value="Crear Categoria" onclick='arbolfunctions.categoria.guardar()'>
+        <input type="button" value="Cancelar">
+    </form>
+    <h6>
+    <ul>
+        <li>Las categorías facilitan la búsqueda de información dentro del Arbol del Bosque, y permiten ver las páginas contenidas en cada una de ellas, o bien navegar a través de ellas, gracias a su ordenación jerárquica</li>
+    </ul>
+    </h6>
+
+<span id="resultado"></span>
+{% endblock %}

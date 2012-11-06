@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Texto{% endblock %}
+
+{% block content %}
+<h4 align="center">Creacion de Contenidos</h4>
+    <form style='margin:20;'>
+        Titulo: <input type="text" name="titulo" size="110" maxlength="100" id="textotitulo"> * <br><br>
+        Contenido: <br> <textarea cols="150" rows="15" name="contenido" id="textocontenido">...</textarea> * <br><br>
+        Categoria: 
+            <select id="textolistacategorias">
+                {% for cat in categorias %}
+                        <option value="{{ cat }}">{{ cat }}</option>
+                {% endfor %}
+            
+            </select> * <input type="button" value="Crear Categoria"><input type="button" value="Cargar Imagen">
+
+            <br><br>
+            
+            
+        <input type="button" value="Grabar Contenido" onclick='arbolfunctions.texto.guardar()' );'>
+        <!--input type="button" value="Previsualizar Contenido"-->
+        <input type="button" value="Cancelar">
+    </form>
+    <h6>
+    <ul>
+        <li> Al pulsar en «Grabar la página», tus cambios se harán visibles inmediatamente</li>
+        <li> Al editar páginas, aceptas todos nuestros términos de uso; en particular, cedes tus contribuciones de manera irrevocable bajo las licencias CC-BY-SA 3.0 y GFDL —por lo que podrán ser utilizadas y modificadas libremente, incluso con fines comerciales—, y garantizas que estás legalmente autorizado a hacerlo, por ser el titular de los derechos de autor o por haberlas obtenido de una fuente que las publicó de forma explícita bajo una licencia compatible con la CC-BY-SA o en el dominio público, por lo que no son aceptables las fuentes de Internet sin indicación alguna sobre derechos. </li>
+        <li> Los artículos deben contener información enciclopédica que tenga un punto de vista neutral y pueda ser verificada por fuentes externas.</li>
+    </ul>
+    </h6>
+
+<span id="resultado"></span>
+{% endblock %}

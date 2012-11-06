@@ -1,0 +1,44 @@
+{% load dajaxice_templatetags %}
+
+<html>
+  <head>
+  <!--   meta name="viewport" content="initial-scale=1.0, user-scalable=no" / -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>{% block title %}Bosque{% endblock %}</title>
+    {% dajaxice_js_import %}
+  
+    <script src="/bosque/js/jquery.dajax.core.js?{{ looks.vc.token }}"> </script>
+    <script src="/bosque/js/dajaxice.core.js?{{ looks.vc.token }}"> </script>
+    <script type="text/javascript" src="/bosque/js/jquery-1.7.2.min.js?{{ looks.vc.token }}"> </script>
+    <script src="/bosque/js/arbolfunctions.js?{{ looks.vc.token }}"> </script>
+  
+  </head>
+  
+  
+  <body style='margin:0px;'>
+
+    <table style='height:100%;width:100%;margin:0;padding:0;' cellpadding=0 cellspacing=0>
+    <tr bgcolor="#F2F2F2">
+        <td>
+            Menu
+        </td>
+        <!-- <td>
+            Informaci&oacute;n
+        </td>
+        <td>
+            Arbol
+        </td> -->
+    </tr>
+    <tr>
+        <td>
+            {% block content %}block: content{% endblock %}
+        </td>
+    </tr>
+    </table>
+    
+    
+    
+    
+  
+  </body>
+</html>
