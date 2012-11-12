@@ -8,11 +8,14 @@ def consultarCategorias ():
     return cats
 
 
-def guardarTextoNuevo (titulo, contenido):
+def guardarTextoNuevo (titulo, contenido, categoria):
     nt = Texto(titulo = titulo, contenido = contenido)
     nt.save()
-    #TODO guardar en categoriasLink  las categorias asociadas
-
+    
+    categoriai = Categoria.objects.get(id = categoria)
+    
+    ctl = CategoriaLink (categoria = categoriai, texto = nt)
+    ctl.save()
 
 def guardarCategoriaNueva (nombre, descripcion):
     nc = Categoria(nombre = nombre, descripcion = descripcion)

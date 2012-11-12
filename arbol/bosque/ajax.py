@@ -6,12 +6,12 @@ from dajaxice.decorators import dajaxice_register
 from django.template.loader import render_to_string
 
 @dajaxice_register
-def guardarTexto (request, titulo, contenido):
+def guardarTexto (request, titulo, contenido, categoria):
     dajax = Dajax()
     
-    guardarTextoNuevo(titulo, contenido)
+    guardarTextoNuevo(titulo, contenido, categoria)
+    dajax.script("arbolfunctions.texto.setResultadoOK();")
     
-    dajax.assign('#resultado','innerHTML',"Contenido ingresado")
     return dajax.json()
 
 @dajaxice_register
@@ -19,6 +19,6 @@ def guardarCategoria (request, nombre, descripcion):
     dajax = Dajax()
     
     guardarCategoriaNueva(nombre, descripcion)
+    dajax.script("arbolfunctions.categoria.setResultadoOK();")
     
-    dajax.assign('#resultado','innerHTML',"Categoria creada")
     return dajax.json()

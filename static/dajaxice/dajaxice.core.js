@@ -14,16 +14,12 @@ var Dajaxice = {
     
         bosque: {
     
-    multiply: function(callback_function, argv, custom_settings){
-        Dajaxice.call('arbol.bosque.multiply', 'POST', callback_function, argv, custom_settings);
-    },
-
     guardarTexto: function(callback_function, argv, custom_settings){
         Dajaxice.call('arbol.bosque.guardarTexto', 'POST', callback_function, argv, custom_settings);
     },
 
-    sayhello: function(callback_function, argv, custom_settings){
-        Dajaxice.call('arbol.bosque.sayhello', 'POST', callback_function, argv, custom_settings);
+    guardarCategoria: function(callback_function, argv, custom_settings){
+        Dajaxice.call('arbol.bosque.guardarCategoria', 'POST', callback_function, argv, custom_settings);
     }
 
 

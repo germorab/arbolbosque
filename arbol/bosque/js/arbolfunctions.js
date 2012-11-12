@@ -3,22 +3,36 @@ var arbolfunctions = {
     
     texto : {
         guardar : function(){
-            titulo = document.getElementById('textotitulo').value
-            contenido = document.getElementById('textocontenido').value
-            //console.log("calling dj "+titulo+" " + contenido);
-            Dajaxice.arbol.bosque.guardarTexto(Dajax.process, {'titulo':titulo , 'contenido':contenido } );
+            var titulo = document.getElementById('textotitulo').value
+            var contenido = document.getElementById('textocontenido').value
+            var categoria = document.getElementById('textolistacategorias').value
+            
+            if (titulo == ""){
+                document.getElementById('resultado').innerHTML = "No se guardo nada. Titulo vacio";
+                return;
+            }
+            Dajaxice.arbol.bosque.guardarTexto(Dajax.process, {'titulo':titulo , 'contenido':contenido, 'categoria' : categoria } );
+        },
+        
+        setResultadoOK : function() {
+            document.getElementById('resultado').innerHTML = "Contenido ingresado";
         }
     },
     
     categoria : {
         guardar : function(){
-            nombre = document.getElementById('categorianombre').value
-            descripcion = document.getElementById('categoriadesc').value
+            var nombre = document.getElementById('categorianombre').value
+            var descripcion = document.getElementById('categoriadesc').value
+            
+            if (nombre == ""){
+                document.getElementById('resultado').innerHTML = "No se guardo nada. Titulo vacio";
+                return;
+            }
             Dajaxice.arbol.bosque.guardarCategoria(Dajax.process, {'nombre':nombre , 'descripcion':descripcion } );
+        },
+        
+        setResultadoOK : function() {
+            document.getElementById('resultado').innerHTML = "Categoria creada";
         }
     }
 }
-
-
-
-//Dajaxice.simple.my_function(callback, {'user': 'tom'}, {'error_callback': custom_error});

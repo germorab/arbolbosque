@@ -8,9 +8,9 @@
         Titulo: <input type="text" name="titulo" size="110" maxlength="100" id="textotitulo"> * <br><br>
         Contenido: <br> <textarea cols="150" rows="15" name="contenido" id="textocontenido">...</textarea> * <br><br>
         Categoria: 
-            <select id="textolistacategorias">
+            <select id="textolistacategorias" multiple="multiple">
                 {% for cat in categorias %}
-                        <option value="{{ cat }}">{{ cat }}</option>
+                        <option value="{{ cat.0 }}">{{ cat.1 }}</option>
                 {% endfor %}
             
             </select> * <input type="button" value="Crear Categoria"><input type="button" value="Cargar Imagen">
@@ -29,6 +29,7 @@
         <li> Los artículos deben contener información enciclopédica que tenga un punto de vista neutral y pueda ser verificada por fuentes externas.</li>
     </ul>
     </h6>
+    
 
 <span id="resultado"></span>
 {% endblock %}
