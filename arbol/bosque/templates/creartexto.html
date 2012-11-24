@@ -3,17 +3,21 @@
 {% block title %}Crear Texto{% endblock %}
 
 {% block content %}
-<h4 align="center">Creacion de Contenidos</h4>
+<h4 align="center">Creación de Contenidos</h4>
     <form style='margin:20;'>
-        Titulo: <input type="text" name="titulo" size="110" maxlength="100" id="textotitulo"> * <br><br>
-        Contenido: <br> <textarea cols="150" rows="15" name="contenido" id="textocontenido">...</textarea> * <br><br>
-        Categoria: 
+        Titulo: <input type="text" name="titulo" size="90" maxlength="100" id="textotitulo"> * 
+        
+        Categoría: 
+            <span style="font-size:80%">
             <select id="textolistacategorias" multiple="multiple">
                 {% for cat in categorias %}
                         <option value="{{ cat.0 }}">{{ cat.1 }}</option>
                 {% endfor %}
-            
-            </select> * <input type="button" value="Crear Categoria"><input type="button" value="Cargar Imagen">
+            </select></span>*<!-- input type="button" value="Crear Categoría" -->
+        
+        <br><br>
+        Contenido: <br> <textarea cols="150" rows="15" name="contenido" id="textocontenido">...</textarea> * <br><br>
+        <!-- input type="button" value="Cargar Imagen" -->
 
             <br><br>
             
@@ -31,5 +35,5 @@
     </h6>
     
 
-<span id="resultado"></span>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span id="resultado"></span>
 {% endblock %}

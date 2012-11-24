@@ -9,13 +9,15 @@ def consultarCategorias ():
 
 
 def guardarTextoNuevo (titulo, contenido, categoria):
+
     nt = Texto(titulo = titulo, contenido = contenido)
     nt.save()
     
-    categoriai = Categoria.objects.get(id = categoria)
-    
-    ctl = CategoriaLink (categoria = categoriai, texto = nt)
-    ctl.save()
+    for i in categoria:
+        categoriai = Categoria.objects.get(id = int(i))
+        ctl = CategoriaLink (categoria = categoriai, texto = nt)
+        ctl.save()
+
 
 def guardarCategoriaNueva (nombre, descripcion):
     nc = Categoria(nombre = nombre, descripcion = descripcion)

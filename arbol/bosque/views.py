@@ -11,8 +11,6 @@ def crearTexto(request):
     for i in cats:
         listadecats.append([i.id,i.nombre])
     
-    print listadecats
-    
     c = {'categorias' : listadecats}
     return render_to_response('creartexto.html', c, context_instance=RequestContext(request))
 

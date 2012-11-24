@@ -9,7 +9,11 @@ from django.template.loader import render_to_string
 def guardarTexto (request, titulo, contenido, categoria):
     dajax = Dajax()
     
+    #try :
     guardarTextoNuevo(titulo, contenido, categoria)
+    #except:
+        #dajax.script("arbolfunctions.texto.setResultadoError();")
+        
     dajax.script("arbolfunctions.texto.setResultadoOK();")
     
     return dajax.json()

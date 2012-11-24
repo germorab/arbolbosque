@@ -7,16 +7,26 @@
     <title>{% block title %}Bosque{% endblock %}</title>
     {% dajaxice_js_import %}
   
-    <script src="/bosque/js/jquery.dajax.core.js?{{ looks.vc.token }}"> </script>
-    <script src="/bosque/js/dajaxice.core.js?{{ looks.vc.token }}"> </script>
-    <script type="text/javascript" src="/bosque/js/jquery-1.7.2.min.js?{{ looks.vc.token }}"> </script>
-    <script src="/bosque/js/arbolfunctions.js?{{ looks.vc.token }}"> </script>
+    <script src="/bosque/static/js/jquery.dajax.core.js?{{ looks.vc.token }}"> </script>
+    <script src="/bosque/static/js/dajaxice.core.js?{{ looks.vc.token }}"> </script>
+    
+    <script type="text/javascript" src="/bosque/static/js/jquery-1.7.2.min.js?{{ looks.vc.token }}"> </script>
+    <script type="text/javascript" src="/bosque/static/js/jquery-ui-1.9.1.custom.js?{{ looks.vc.token }}"></script>
+    <script type="text/javascript" src="/bosque/static/js/jquery.multiselect.js?{{ looks.vc.token }}"></script>
+    
+    <link type="text/css" href="/bosque/static/css/south-street/jquery-ui-1.9.1.custom.css?{{ looks.vc.token }}" rel="stylesheet" />
+    <link rel="stylesheet" href="/bosque/static/css/jquery.multiselect.css?{{ looks.vc.token }}" type="text/css"  />
+    
+    <script src="/bosque/static/js/arbolfunctions.js?{{ looks.vc.token }}"> </script>
     
     
     
     <script>
     {% block js_ready %} 
-        
+
+$(document).ready(function(){
+    $("#textolistacategorias").multiselect({selectedText: "Seleccionada(s) # de #", noneSelectedText:"Seleccione Categoria"});
+});
 
     {% endblock %}
     </script>
@@ -26,11 +36,11 @@
   
   <body style='margin:0px;'>
 
-    <table style='height:100%;width:100%;margin:0;padding:0;' cellpadding=0 cellspacing=0>
-    <tr bgcolor="#F2F2F2">
-        <td>
+    <table bgcolor="#eff2dc" style='height:100%;width:100%;margin:0;padding:0;' cellpadding=0 cellspacing=0>
+    <tr bgcolor="#eff2dc" style='height:5%;'>
+        <!-- td>
             Menu
-        </td>
+        </td -->
         <!-- <td>
             Informaci&oacute;n
         </td>
@@ -39,7 +49,7 @@
         </td> -->
     </tr>
     <tr>
-        <td>
+        <td bgcolor="#eff2dc">
             {% block content %}block: content{% endblock %}
         </td>
     </tr>
