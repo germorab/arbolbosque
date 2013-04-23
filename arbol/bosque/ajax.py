@@ -9,10 +9,10 @@ from django.template.loader import render_to_string
 def guardarTexto (request, titulo, contenido, categoria):
     dajax = Dajax()
     
-    #try :
-    guardarTextoNuevo(titulo, contenido, categoria)
-    #except:
-        #dajax.script("arbolfunctions.texto.setResultadoError();")
+    try :
+        guardarTextoNuevo(titulo, contenido, categoria)
+    except:
+        dajax.script("arbolfunctions.texto.setResultadoError();")
         
     dajax.script("arbolfunctions.texto.setResultadoOK();")
     
@@ -25,4 +25,15 @@ def guardarCategoria (request, nombre, descripcion):
     guardarCategoriaNueva(nombre, descripcion)
     dajax.script("arbolfunctions.categoria.setResultadoOK();")
     
+    return dajax.json()
+
+
+@dajaxice_register
+def mostrarDialogoCategoria (request):
+    dajax = Dajax()
+    
+    outvars = ["85%","auto"]
+    dajax.assign('#dialog-confirm','innerHTML',render_to_string('crearcategoria.html'))
+    dajax.add_data(outvars,"arbolfunctions.indice.diag")
+
     return dajax.json()

@@ -16,7 +16,7 @@ class Texto(models.Model):
     
     def __unicode__(self):
         return u'%s %s' % (self.categorialink, self.contenido)
-    
+
 
 class Revision(models.Model):
     fecha = models.DateField()
@@ -24,7 +24,7 @@ class Revision(models.Model):
     
     def __unicode__(self):
         return u'%s %s' % (self.fecha, self.comentarios)
-        
+
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=50)
@@ -40,16 +40,21 @@ class CategoriaLink(models.Model):
     def __unicode__(self):
         return self.nombre
 
+
+class Resumen(models.Model):
+    resumen = models.TextField()
+
 class Pagina(models.Model):
     titulo = models.CharField(max_length=50)
     texto = models.ForeignKey(Texto)
+    resumen = models.ForeignKey(Resumen)
     revision = models.ForeignKey(Revision)
     imagen = models.ForeignKey(Imagen)
     
     def __unicode__(self):
         return self.titulo
-        
-        
+
+
 class IndiceDeBusqueda(models.Model):
     titulo = models.CharField(max_length=50)
     metadatos = models.TextField()
