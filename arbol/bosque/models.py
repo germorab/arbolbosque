@@ -41,8 +41,9 @@ class CategoriaLink(models.Model):
         return self.nombre
 
 
-class Resumen(models.Model):
-    resumen = models.TextField()
+#class Resumen(models.Model):
+#    resumen = models.TextField()
+
 
 class Pagina(models.Model):
     titulo = models.CharField(max_length=50)
