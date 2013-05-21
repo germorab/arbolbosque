@@ -4,14 +4,28 @@ var arbolfunctions = {
     
     indice : {
         categoria : function (){
-
             Dajaxice.arbol.bosque.mostrarDialogoCategoria(Dajax.process);
+        },
         
+        texto : function (){
+            Dajaxice.arbol.bosque.mostrarDialogoTexto(Dajax.process);
+        },
+        
+        busqueda : function (){
+            Dajaxice.arbol.bosque.mostrarDialogoBusqueda(Dajax.process);
+        },
+        
+        imagen : function (){
+            Dajaxice.arbol.bosque.mostrarDialogoImagen(Dajax.process);
+        },
+        
+        pagina : function (){
+            Dajaxice.arbol.bosque.mostrarDialogoPagina(Dajax.process);
         },
         
         diag_close : function() {
             $("#dialog-confirm").dialog('destroy');
-            $("#dialog-confirm").remove();
+            //$("#dialog-confirm").remove();
             
         },
 

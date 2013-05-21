@@ -37,3 +37,47 @@ def mostrarDialogoCategoria (request):
     dajax.add_data(outvars,"arbolfunctions.indice.diag")
 
     return dajax.json()
+
+
+@dajaxice_register
+def mostrarDialogoTexto (request):
+    dajax = Dajax()
+    
+    outvars = ["85%","auto"]
+    dajax.assign('#dialog-confirm','innerHTML',render_to_string('creartexto.html'))
+    dajax.add_data(outvars,"arbolfunctions.indice.diag")
+
+    return dajax.json()
+
+
+@dajaxice_register
+def mostrarDialogoBusqueda (request):
+    dajax = Dajax()
+    
+    outvars = ["85%","auto"]
+    dajax.assign('#dialog-confirm','innerHTML',render_to_string('busqueda.html'))
+    dajax.add_data(outvars,"arbolfunctions.indice.diag")
+
+    return dajax.json()
+
+
+@dajaxice_register
+def mostrarDialogoImagen (request):
+    dajax = Dajax()
+    
+    outvars = ["85%","auto"]
+    dajax.assign('#dialog-confirm','innerHTML',render_to_string('cargarimagen.html'))
+    dajax.add_data(outvars,"arbolfunctions.indice.diag")
+
+    return dajax.json()
+
+
+@dajaxice_register
+def mostrarDialogoPagina (request):
+    dajax = Dajax()
+    
+    outvars = ["85%","auto"]
+    dajax.assign('#dialog-confirm','innerHTML',render_to_string('pagina.html'))
+    dajax.add_data(outvars,"arbolfunctions.indice.diag")
+
+    return dajax.json()

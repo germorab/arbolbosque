@@ -48,7 +48,7 @@ class CategoriaLink(models.Model):
 class Pagina(models.Model):
     titulo = models.CharField(max_length=50)
     texto = models.ForeignKey(Texto)
-    resumen = models.ForeignKey(Resumen)
+    #resumen = models.ForeignKey(Resumen)
     revision = models.ForeignKey(Revision)
     imagen = models.ForeignKey(Imagen)
     

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Realizar búsqueda{% endblock %}
+
+{% block content %}
+<br>
+<h3 align="center">Realizar búsqueda</h3>
+    <form style='margin:10;'>
+        Termino a buscar: <input type="text" name="nombrecategoria" size="110" maxlength="100" id = "categorianombre"><br><br>
+        <input type="button" value="Buscar" onclick='arbolfunctions.categoria.guardar()'>
+        <input type="button" value="Cancelar" onclick = "arbolfunctions.indice.diag_close()">
+    </form>
+
+<span id="resultado"></span>
+{% endblock %}
