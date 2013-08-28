@@ -2,8 +2,14 @@ from models import *
 
 def consultarCategorias ():
     try:
-        cats = Categoria.objects.all() 
+        catslist = []
+        cats = Categoria.objects.all()
+        print cats
+        for one in cats:
+             catslist.append ([one.id, one.nombre])
+        return catslist
     except:
+        print "except - consultarCategorias"
         cats = []
     return cats
 
