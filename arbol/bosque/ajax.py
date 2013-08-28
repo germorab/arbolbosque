@@ -32,7 +32,7 @@ def guardarCategoria (request, nombre, descripcion):
 def mostrarDialogoCategoria (request):
     dajax = Dajax()
     
-    outvars = ["85%","auto"]
+    outvars = []
     dajax.assign('#dialog-confirm','innerHTML',render_to_string('crearcategoria.html'))
     dajax.add_data(outvars,"arbolfunctions.indice.diag")
 

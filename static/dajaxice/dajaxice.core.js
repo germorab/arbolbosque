@@ -18,8 +18,28 @@ var Dajaxice = {
         Dajaxice.call('arbol.bosque.guardarTexto', 'POST', callback_function, argv, custom_settings);
     },
 
+    mostrarDialogoTexto: function(callback_function, argv, custom_settings){
+        Dajaxice.call('arbol.bosque.mostrarDialogoTexto', 'POST', callback_function, argv, custom_settings);
+    },
+
+    mostrarDialogoCategoria: function(callback_function, argv, custom_settings){
+        Dajaxice.call('arbol.bosque.mostrarDialogoCategoria', 'POST', callback_function, argv, custom_settings);
+    },
+
+    mostrarDialogoPagina: function(callback_function, argv, custom_settings){
+        Dajaxice.call('arbol.bosque.mostrarDialogoPagina', 'POST', callback_function, argv, custom_settings);
+    },
+
     guardarCategoria: function(callback_function, argv, custom_settings){
         Dajaxice.call('arbol.bosque.guardarCategoria', 'POST', callback_function, argv, custom_settings);
+    },
+
+    mostrarDialogoImagen: function(callback_function, argv, custom_settings){
+        Dajaxice.call('arbol.bosque.mostrarDialogoImagen', 'POST', callback_function, argv, custom_settings);
+    },
+
+    mostrarDialogoBusqueda: function(callback_function, argv, custom_settings){
+        Dajaxice.call('arbol.bosque.mostrarDialogoBusqueda', 'POST', callback_function, argv, custom_settings);
     }
 
 

@@ -1,7 +1,7 @@
 
 var arbolfunctions = {
-    
-    
+
+
     indice : {
         categoria : function (){
             Dajaxice.arbol.bosque.mostrarDialogoCategoria(Dajax.process);
@@ -24,9 +24,8 @@ var arbolfunctions = {
         },
         
         diag_close : function() {
+            $("#dialog-confirm").remove();
             $("#dialog-confirm").dialog('destroy');
-            //$("#dialog-confirm").remove();
-            
         },
 
         diag : function(diagvars) {
@@ -34,8 +33,8 @@ var arbolfunctions = {
             $("#dialog-confirm").dialog(
                     {modal:true},
                     {resizable: false},
-                    {width: diagvars[0]},
-                    {height: diagvars[1]},
+                    {width: "85%"},
+                    {height: "auto"},
                     {close:function(){arbolfunctions.indice.diag_close(); }}
                 );
         }
