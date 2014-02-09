@@ -26,17 +26,18 @@ var arbolfunctions = {
         diag_close : function() {
             $("#dialog-confirm").remove();
             $("#dialog-confirm").dialog('destroy');
+            $("#textolistacategorias").dialog('destroy');
         },
 
         diag : function(diagvars) {
 
             $("#dialog-confirm").dialog(
-                    {modal:true},
-                    {resizable: false},
-                    {width: "85%"},
-                    {height: "auto"},
-                    {close:function(){arbolfunctions.indice.diag_close(); }}
-                );
+                {modal:true},
+                {resizable: false},
+                {width: "85%"},
+                {height: "auto"},
+                {close:function(){$(this).dialog("close"); }}
+            );
         }
     },
     
