@@ -30,11 +30,12 @@ var arbolfunctions = {
         },
 
         diag : function(diagvars) {
-
+            
             $("#dialog-confirm").dialog(
                 {modal:true},
+                {title:"Arquitectura de la Informacion en un Entorno 3D para Wikipedia"},
                 {resizable: false},
-                {width: "85%"},
+                {width: "40%"},
                 {height: "auto"},
                 {close:function(){$(this).dialog("close"); }}
             );
