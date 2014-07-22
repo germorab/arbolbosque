@@ -28,3 +28,18 @@ def guardarTextoNuevo (titulo, contenido, categoria):
 def guardarCategoriaNueva (nombre, descripcion):
     nc = Categoria(nombre = nombre, descripcion = descripcion)
     nc.save()
+
+
+def consultarPagina (titulo):
+    
+    pag = None
+    
+    try:
+        pagob = Pagina.objects.get (titulo = titulo)
+        print pagob
+    except:
+        print "except - consultarPagina"
+        
+    return pag
+    
+    #armar lista 

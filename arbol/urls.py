@@ -11,8 +11,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^texto/$', 'arbol.bosque.views.crearTexto'),
-    url(r'^categoria/$', 'arbol.bosque.views.crearCategoria'),
+    #url(r'^texto/$', 'arbol.bosque.views.crearTexto'),
+    #url(r'^categoria/$', 'arbol.bosque.views.crearCategoria'),
     url(r'^arbol/$', 'arbol.bosque.views.mostrarArbol'),
     
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
