@@ -80,10 +80,10 @@ def mostrarDialogoImagen (request):
 def mostrarDialogoPagina (request):
     dajax = Dajax()
     
-    consultarPagina("test")
+    result = consultarPagina("test")
     
     outvars = []
-    dajax.assign('#dialog-confirm','innerHTML',render_to_string('pagina.html'))
+    dajax.assign('#dialog-confirm','innerHTML',render_to_string('pagina.html', {'pagina':result}))
     dajax.add_data(outvars,"arbolfunctions.indice.diag")
 
     return dajax.json()

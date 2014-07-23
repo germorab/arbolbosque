@@ -15,7 +15,7 @@ class Texto(models.Model):
     contenido = models.TextField()
     
     def __unicode__(self):
-        return u'%s %s' % (self.categorialink, self.contenido)
+        return u'%s %s' % (self.titulo, self.contenido)
 
 
 class Revision(models.Model):
@@ -38,7 +38,7 @@ class CategoriaLink(models.Model):
     categoria = models.ForeignKey(Categoria)
     
     def __unicode__(self):
-        return self.nombre
+        return u'%s %s' % (self.texto, self.categoria)
 
 
 #class Resumen(models.Model):

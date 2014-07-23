@@ -1,4 +1,5 @@
 from models import *
+import traceback
 
 def consultarCategorias ():
     try:
@@ -32,13 +33,21 @@ def guardarCategoriaNueva (nombre, descripcion):
 
 def consultarPagina (titulo):
     
-    pag = None
+    pag = {}
     
     try:
         pagob = Pagina.objects.get (titulo = titulo)
-        print pagob
+        pag['titulo'] = titulo
+        pag['texto'] = Texto.objects.get(id = pagob.texto_id).contenido
+        cates = []
+        categ = CategoriaLink.objects.get(texto =  pagob.texto_id)
+        cates.append(categ.categoria.nombre)
+        pag['categorias'] = cates
+        
     except:
         print "except - consultarPagina"
+        print traceback.format_exc()
+        pag = None
         
     return pag
     
