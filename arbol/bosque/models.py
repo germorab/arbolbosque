@@ -15,6 +15,7 @@ class Texto(models.Model):
     contenido = models.TextField()
     
     def __unicode__(self):
+        
         return u'%s %s' % (self.titulo, self.contenido)
 
 
