@@ -3,20 +3,10 @@ from django.db import models
 
 class Imagen(models.Model):
     nombre = models.CharField(max_length=50)
-    descripcion = models.CharField(max_length=500)
-#    elemento = models.FileField('/medios/')
+    imagen = models.FileField(upload_to = './')
     
     def __unicode__(self):
-        return u'%s %s' % (self.nombre, self.descripcion)
-
-
-class Texto(models.Model):
-    titulo = models.CharField(max_length=50)
-    contenido = models.TextField()
-    
-    def __unicode__(self):
-        
-        return u'%s %s' % (self.titulo, self.contenido)
+        return u'%s - %s' % (self.nombre, str(self.imagen))
 
 
 class Revision(models.Model):
@@ -24,7 +14,7 @@ class Revision(models.Model):
     comentarios = models.TextField()
     
     def __unicode__(self):
-        return u'%s %s' % (self.fecha, self.comentarios)
+        return u'%s - %s' % (self.fecha, self.comentarios)
 
 
 class Categoria(models.Model):
@@ -32,35 +22,37 @@ class Categoria(models.Model):
     descripcion = models.TextField()
     
     def __unicode__(self):
-        return u'%s %s' % (self.nombre, self.descripcion)
-
-class CategoriaLink(models.Model):
-    texto = models.ForeignKey(Texto)
-    categoria = models.ForeignKey(Categoria)
-    
-    def __unicode__(self):
-        return u'%s %s' % (self.texto, self.categoria)
-
-
-#class Resumen(models.Model):
-#    resumen = models.TextField()
-
-
-class Pagina(models.Model):
-    titulo = models.CharField(max_length=50)
-    texto = models.ForeignKey(Texto)
-    revision = models.ForeignKey(Revision)
-    imagen = models.ForeignKey(Imagen)
-    #resumen = models.ForeignKey(Resumen)
-    
-    def __unicode__(self):
-        return self.titulo
+        return u'%s - %s' % (self.nombre, self.descripcion)
 
 
 class IndiceDeBusqueda(models.Model):
-    titulo = models.CharField(max_length=50)
-    metadatos = models.TextField()
-    pagina = models.ForeignKey(Pagina)
+    palabrasclave = models.TextField()
     
     def __unicode__(self):
-        return u'%s %s' % (self.titulo, self.metadatos)
+        return u'%s' % (self.palabrasclave)
+
+
+class Articulo(models.Model):
+    titulo = models.CharField(max_length=50)
+    contenido = models.TextField()
+    revision = models.ForeignKey(Revision, null=True, blank=True)
+    imagen = models.ForeignKey(Imagen, null=True, blank=True )
+    
+    def __unicode__(self):
+        return u'%s - %s' % (self.titulo, self.contenido)
+
+
+class IndiceBusquedaArticulo(models.Model):
+    articulo = models.ForeignKey(Articulo)
+    indicebusqueda = models.ForeignKey(IndiceDeBusqueda)
+    
+    def __unicode__(self):
+        return u'%s - %s' % (self.articulo, self.indicebusqueda)
+
+
+class CategoriaLink(models.Model):
+    articulo = models.ForeignKey(Articulo)
+    categoria = models.ForeignKey(Categoria)
+    
+    def __unicode__(self):
+        return u'%s - %s' % (self.articulo, self.categoria)
