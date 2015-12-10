@@ -7,6 +7,6 @@ local_settings.py
 /cmhosts.pem
 attachments/
 /node_modules/
-/adboozter/static/bower_components/
+/arbol/static/bower_components/
 grunt_django_compressor_versions.json
 *.log
