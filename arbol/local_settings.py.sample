@@ -1,0 +1,16 @@
+# coding=utf-8
+
+import os
+BASE_DIR = os.path.dirname(__file__).replace('\\', '/')
+
+DEBUG = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+    }
+}

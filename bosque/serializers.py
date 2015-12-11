@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
-import arbol.bosque.models
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
