@@ -2,14 +2,13 @@ from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+
 admin.autodiscover()
 
 from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 dajaxice_autodiscover()
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
-
 from rest_framework import routers
 from bosque import views
 
@@ -31,7 +30,7 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^', include(router.urls)),
-
+    url(r'^forest/', include('bosque.urls', namespace='forest')),
    )
 
 urlpatterns += staticfiles_urlpatterns()
