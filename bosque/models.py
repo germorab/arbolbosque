@@ -36,7 +36,7 @@ class Articulo(models.Model):
     titulo = models.CharField(max_length=50)
     contenido = models.TextField()
     revision = models.ForeignKey(Revision, null=True, blank=True)
-    imagen = models.ForeignKey(Imagen, null=True, blank=True )
+    imagen = models.ForeignKey(Imagen, null=True, blank=True)
     
     def __unicode__(self):
         return u'%s - %s' % (self.titulo, self.contenido)
