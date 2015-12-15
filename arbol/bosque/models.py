@@ -16,10 +16,17 @@ class Revision(models.Model):
     def __unicode__(self):
         return u'%s - %s' % (self.fecha, self.comentarios)
 
+class Tematica(models.Model):
+    nombre = models.CharField(max_length=50)
+    descripcion = models.TextField()
+
+    def __unicode__(self):
+        return u'%s - %s' % (self.nombre, self.descripcion)
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.TextField()
+    tematica = models.ForeignKey(Tematica)
     
     def __unicode__(self):
         return u'%s - %s' % (self.nombre, self.descripcion)
