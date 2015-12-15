@@ -37,7 +37,7 @@ def mostrarDialogoCategoria (request):
     dajax = Dajax()
     
     outvars = []
-    dajax.assign('#dialog-confirm','innerHTML',render_to_string('crearcategoria.html'))
+    dajax.assign('#dialog-confirm','innerHTML', render_to_string('crearcategoria.html'))
     dajax.add_data(outvars,"arbolfunctions.indice.diag")
 
     return dajax.json()
@@ -48,7 +48,7 @@ def mostrarDialogoTexto (request):
     
     categorias = consultarCategorias()
     outvars = []
-    dajax.assign('#dialog-confirm','innerHTML',render_to_string('creartexto.html', {'categorias':categorias}))
+    dajax.assign('#dialog-confirm','innerHTML', render_to_string('creartexto.html', {'categorias':categorias}))
     dajax.add_data(outvars,"arbolfunctions.indice.diag")
 
     return dajax.json()
@@ -59,7 +59,7 @@ def mostrarDialogoBusqueda (request):
     dajax = Dajax()
     
     outvars = []
-    dajax.assign('#dialog-confirm','innerHTML',render_to_string('busqueda.html'))
+    dajax.assign('#dialog-confirm','innerHTML', render_to_string('busqueda.html'))
     dajax.add_data(outvars,"arbolfunctions.indice.diag")
 
     return dajax.json()
@@ -70,7 +70,7 @@ def mostrarDialogoImagen (request):
     dajax = Dajax()
     
     outvars = []
-    dajax.assign('#dialog-confirm','innerHTML',render_to_string('cargarimagen.html'))
+    dajax.assign('#dialog-confirm','innerHTML', render_to_string('cargarimagen.html'))
     dajax.add_data(outvars,"arbolfunctions.indice.diag")
 
     return dajax.json()
@@ -83,7 +83,7 @@ def mostrarDialogoPagina (request):
     result = consultarPagina("test")
     
     outvars = []
-    dajax.assign('#dialog-confirm','innerHTML',render_to_string('pagina.html', {'pagina':result}))
+    dajax.assign('#dialog-confirm','innerHTML', render_to_string('pagina.html', {'pagina':result}))
     dajax.add_data(outvars,"arbolfunctions.indice.diag")
 
     return dajax.json()

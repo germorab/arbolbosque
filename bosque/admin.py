@@ -1,5 +1,6 @@
-from arbol.bosque.models import *
 from django.contrib import admin
+
+from bosque.models import *
 
 admin.site.register(Imagen)
 admin.site.register(CategoriaLink)

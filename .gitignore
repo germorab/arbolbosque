@@ -1,0 +1,12 @@
+*.swp
+*.pyc
+*.idea
+*.DS_Store
+local_settings.py
+*gitignored*
+/cmhosts.pem
+attachments/
+/node_modules/
+/arbol/static/bower_components/
+grunt_django_compressor_versions.json
+*.log

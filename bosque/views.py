@@ -1,14 +1,12 @@
 from methods import *
+
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.views.decorators.csrf import ensure_csrf_cookie
-
-
 from django.contrib.auth.models import User, Group
+
 from rest_framework import viewsets
 from serializers import UserSerializer, GroupSerializer
-
 
 
 @ensure_csrf_cookie
@@ -28,10 +26,10 @@ def crearTexto(request):
     c = {'categorias' : listadecats}
     return render_to_response('creartexto.html', c, context_instance=RequestContext(request))
 
+
 @ensure_csrf_cookie
 def crearCategoria(request):
     return render_to_response('crearcategoria.html')
-
 
 
 class UserViewSet(viewsets.ModelViewSet):
