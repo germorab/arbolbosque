@@ -6,13 +6,15 @@ from bosque.models import Categoria, Articulo, Tematica
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Categoria
-        fields = ('nombre', 'descripcion')
+        fields = ('nombre', 'descripcion', 'tematica')
+        depth = 1
 
 
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Articulo
-        fields = ('titulo', 'contenido')
+        fields = ('titulo', 'contenido', 'categoria')
+        depth = 1
 
 
 class ThematicSerializer(serializers.ModelSerializer):
