@@ -16,12 +16,14 @@ class Revision(models.Model):
     def __unicode__(self):
         return u'%s - %s' % (self.fecha, self.comentarios)
 
+
 class Tematica(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.TextField()
 
     def __unicode__(self):
         return u'%s - %s' % (self.nombre, self.descripcion)
+
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=50)
@@ -44,6 +46,7 @@ class Articulo(models.Model):
     contenido = models.TextField()
     revision = models.ForeignKey(Revision, null=True, blank=True)
     imagen = models.ForeignKey(Imagen, null=True, blank=True)
+    categoria = models.ManyToManyField(Categoria)
     
     def __unicode__(self):
         return u'%s - %s' % (self.titulo, self.contenido)

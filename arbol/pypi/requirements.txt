@@ -1,4 +1,4 @@
-Django==1.8
+Django==1.8.6
 argparse==1.2.1
 https://github.com/pwupwu/django-dajax/archive/master.zip
 django-dajaxice==0.7

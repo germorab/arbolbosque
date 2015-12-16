@@ -2,14 +2,14 @@
 from rest_framework import viewsets
 from rest_framework import filters
 
-from bosque.models import Categoria, Articulo
-from bosque.v1.serializers import CategoriaSerializer, ArticleSerializer
+from bosque.models import Categoria, Articulo, Tematica
+from bosque.v1.serializers import CategorySerializer, ArticleSerializer, ThematicSerializer
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
 
     queryset = Categoria.objects.all()
-    serializer_class = CategoriaSerializer
+    serializer_class = CategorySerializer
     filter_backends = (filters.SearchFilter,)
     search_fields = ('nombre', )
 
@@ -20,3 +20,11 @@ class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     filter_backends = (filters.SearchFilter,)
     search_fields = ('titulo', )
+
+
+class ThematicViewSet(viewsets.ModelViewSet):
+
+    queryset = Tematica.objects.all()
+    serializer_class = ThematicSerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('nombre', )

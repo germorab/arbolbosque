@@ -64,10 +64,28 @@ class Migration(migrations.Migration):
                 ('comentarios', models.TextField()),
             ],
         ),
+        migrations.CreateModel(
+            name='Tematica',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('nombre', models.CharField(max_length=50)),
+                ('descripcion', models.TextField()),
+            ],
+        ),
         migrations.AddField(
             model_name='indicebusquedaarticulo',
             name='indicebusqueda',
             field=models.ForeignKey(to='bosque.IndiceDeBusqueda'),
+        ),
+        migrations.AddField(
+            model_name='categoria',
+            name='tematica',
+            field=models.ForeignKey(to='bosque.Tematica'),
+        ),
+        migrations.AddField(
+            model_name='articulo',
+            name='categoria',
+            field=models.ManyToManyField(to='bosque.Categoria'),
         ),
         migrations.AddField(
             model_name='articulo',
