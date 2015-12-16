@@ -1,4 +1,7 @@
+from django.core.urlresolvers import reverse
 from django.db import models
+
+from bosque.utils import make_absolute_url
 
 
 class Imagen(models.Model):
@@ -24,6 +27,18 @@ class Tematica(models.Model):
     def __unicode__(self):
         return u'%s - %s' % (self.nombre, self.descripcion)
 
+    # API REST methods
+
+    def get_categories_api_url(self):
+
+        reverse_url = reverse(
+            'forest:v1:thematic_categories', args=[self.pk]
+        )
+
+        return make_absolute_url(reverse_url)
+
+    # End API REST methods
+
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=50)
@@ -32,6 +47,18 @@ class Categoria(models.Model):
     
     def __unicode__(self):
         return u'%s - %s' % (self.nombre, self.descripcion)
+
+    # API REST methods
+
+    def get_articles_api_url(self):
+
+        reverse_url = reverse(
+            'forest:v1:category_articles', args=[self.pk]
+        )
+
+        return make_absolute_url(reverse_url)
+
+    # End API REST methods
 
 
 class IndiceDeBusqueda(models.Model):
