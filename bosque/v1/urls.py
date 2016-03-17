@@ -2,7 +2,8 @@ from rest_framework import routers
 
 from django.conf.urls import patterns, url, include
 
-from bosque.v1.views import CategoryViewSet, ArticleViewSet, ThematicViewSet, ThematicCategories, CategoryArticles
+from bosque.v1.views import CategoryViewSet, ArticleViewSet, ThematicViewSet, ThematicCategories, CategoryArticles, \
+    ArticleCategories, CategoryThematic
 
 # Routers
 routers_forest = routers.DefaultRouter()
@@ -17,6 +18,16 @@ complex_services_urls = patterns(
         r'^thematic/(?P<pk>\d+)/categories',
         ThematicCategories.as_view(),
         name='thematic_categories'
+    ),
+    url(
+        r'^article/(?P<pk>\d+)/categories',
+        ArticleCategories.as_view(),
+        name='article_categories'
+    ),
+    url(
+        r'^category/(?P<pk>\d+)/thematic',
+        CategoryThematic.as_view(),
+        name='category_thematic'
     ),
     url(
         r'^category/(?P<pk>\d+)/articles',

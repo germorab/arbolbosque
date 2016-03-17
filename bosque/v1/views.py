@@ -23,7 +23,6 @@ class ThematicCategories(generics.ListAPIView):
     def get_queryset(self):
 
         thematic_pk = self.kwargs.get('pk')
-
         queryset = Categoria.objects.filter(tematica__pk=thematic_pk)
 
         return queryset
@@ -37,6 +36,19 @@ class CategoryViewSet(viewsets.ModelViewSet):
     search_fields = ('nombre', )
 
 
+class CategoryThematic(generics.ListAPIView):
+
+    model = Articulo
+    serializer_class = ArticleSerializer
+
+    def get_queryset(self):
+
+        category_pk = self.kwargs.get('pk')
+        queryset = Tematica.objects.filter(categoria=category_pk)
+
+        return queryset
+
+
 class CategoryArticles(generics.ListAPIView):
 
     model = Articulo
@@ -45,7 +57,6 @@ class CategoryArticles(generics.ListAPIView):
     def get_queryset(self):
 
         category_pk = self.kwargs.get('pk')
-
         queryset = Articulo.objects.filter(categoria__pk=category_pk)
 
         return queryset
@@ -58,3 +69,15 @@ class ArticleViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.SearchFilter,)
     search_fields = ('titulo', )
 
+
+class ArticleCategories(generics.ListAPIView):
+
+    model = Categoria
+    serializer_class = CategorySerializer
+
+    def get_queryset(self):
+
+        article_pk = self.kwargs.get('pk')
+        queryset = Categoria.objects.filter(articulo=article_pk)
+
+        return queryset

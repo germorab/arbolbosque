@@ -50,6 +50,14 @@ class Categoria(models.Model):
 
     # API REST methods
 
+    def get_thematic_api_url(self):
+
+        reverse_url = reverse(
+            'forest:v1:category_thematic', args=[self.pk]
+        )
+
+        return make_absolute_url(reverse_url)
+
     def get_articles_api_url(self):
 
         reverse_url = reverse(
@@ -77,6 +85,18 @@ class Articulo(models.Model):
     
     def __unicode__(self):
         return u'%s - %s' % (self.titulo, self.contenido)
+
+    # API REST methods
+
+    def get_categories_api_url(self):
+
+        reverse_url = reverse(
+            'forest:v1:article_categories', args=[self.pk]
+        )
+
+        return make_absolute_url(reverse_url)
+
+    # End API REST methods
 
 
 class IndiceBusquedaArticulo(models.Model):
