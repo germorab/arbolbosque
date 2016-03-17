@@ -38,8 +38,8 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
 class CategoryThematic(generics.ListAPIView):
 
-    model = Articulo
-    serializer_class = ArticleSerializer
+    model = Tematica
+    serializer_class = ThematicSerializer
 
     def get_queryset(self):
 
@@ -57,7 +57,7 @@ class CategoryArticles(generics.ListAPIView):
     def get_queryset(self):
 
         category_pk = self.kwargs.get('pk')
-        queryset = Articulo.objects.filter(categoria__pk=category_pk)
+        queryset = Articulo.objects.filter(categoria=category_pk)
 
         return queryset
 

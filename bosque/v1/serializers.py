@@ -4,11 +4,15 @@ from rest_framework import serializers
 from bosque.models import Categoria, Articulo, Tematica
 
 
-class ThematicSerializer(serializers.ModelSerializer):
+class ArticleSerializer(serializers.ModelSerializer):
+
+    categories_link = serializers.ReadOnlyField(
+        source='get_categories_api_url'
+    )
 
     class Meta:
-        model = Tematica
-        fields = ('nombre', 'descripcion')
+        model = Articulo
+        fields = ('titulo', 'contenido', 'categories_link')
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -22,12 +26,8 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ('nombre', 'descripcion', 'thematic_link')
 
 
-class ArticleSerializer(serializers.ModelSerializer):
-
-    categories_link = serializers.ReadOnlyField(
-        source='get_categories_api_url'
-    )
+class ThematicSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Articulo
-        fields = ('titulo', 'contenido', 'categories_link')
+        model = Tematica
+        fields = ('nombre', 'descripcion')
