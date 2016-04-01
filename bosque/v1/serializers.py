@@ -12,7 +12,7 @@ class ArticleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Articulo
-        fields = ('titulo', 'contenido', 'categories_link')
+        fields = ('id', 'titulo', 'contenido', 'categories_link')
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -23,11 +23,11 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Categoria
-        fields = ('nombre', 'descripcion', 'thematic_link')
+        fields = ('id', 'nombre', 'descripcion', 'thematic_link')
 
 
 class ThematicSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tematica
-        fields = ('nombre', 'descripcion')
+        fields = ('id', 'nombre', 'descripcion')
