@@ -2,4 +2,5 @@ Django
 argparse
 djangorestframework
 psycopg2
+django_extensions
 # wsgiref
