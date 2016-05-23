@@ -46,7 +46,7 @@ class Categoria(models.Model):
     tematica = models.ForeignKey(Tematica)
     
     def __unicode__(self):
-        return u'%s - %s' % (self.nombre, self.descripcion)
+        return u'%s - %s' % (self.nombre, self.tematica.nombre)
 
     # API REST methods
 
