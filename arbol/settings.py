@@ -93,9 +93,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-DAJAXICE_MEDIA_PREFIX="dajaxice"
-DAJAXICE_NOTIFY_EXCEPTIONS = True
-
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'ip#b=h+q#w^^musz25#tg=wj_cqwse-bncqwel%ycj3m91xvh^'
 
@@ -187,7 +184,6 @@ LOGGING = {
             'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d: %(message)s'
         },
         'simple': {
-#            'format': '%(levelname)s %(asctime)s %(pathname)s %(funcName)s %(process)d %(thread)d: %(message)s'
             'format': '%(levelname)s %(asctime)s: %(message)s'
         },
     },
@@ -208,22 +204,11 @@ LOGGING = {
                 'filename': PROJECT_PATH+'/logs/general.log',
                 'formatter': 'simple'
         },
-        'dajaxice_file':{
-                'level': 'DEBUG',
-                'class': 'logging.FileHandler',
-                'filename': PROJECT_PATH+'/logs/dajaxice.log',
-                'formatter': 'simple'
-        }
     },
     'loggers': {
         'django.request': {
             'handlers': ['general_file'],
             'level': 'ERROR',
-            'propagate': True,
-        },
-        'dajaxice': {
-            'handlers': ['dajaxice_file'],
-            'level': 'WARNING',
             'propagate': True,
         },
     }
