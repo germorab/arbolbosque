@@ -2,4 +2,4 @@ Django
 argparse
 djangorestframework
 psycopg2
-wsgiref
+# wsgiref
