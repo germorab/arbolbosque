@@ -1,0 +1,43 @@
+# Edit this file to introduce tasks to be run by cron.
+#
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+#
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+
+BIN_PYTHON=~/.virtualenvs/adboozter/bin/python
+DJANGO_MANAGE=~/www/adboozter/manage.py
+
+
+00 01 * * * $BIN_PYTHON DJANGO_MANAGE update_data >> ~/crontab_outputs/update_data.txt
+
+00 02 * * * $BIN_PYTHON DJANGO_MANAGE creation_date_ad >> ~/crontab_outputs/creation_date_ad.txt
+
+00 03 * * * $BIN_PYTHON DJANGO_MANAGE clicks_and_impressions >> ~/crontab_outputs/clicks_and_impressions.txt
+
+# Esto fue reemplazado por la app de cron job de Python
+# 00 04 * * * $BIN_PYTHON DJANGO_MANAGE split_tester >> ~/crontab_outputs/split_tester.txt
+
+00 04 * * * $BIN_PYTHON DJANGO_MANAGE send_completion_plan_period >> ~/crontab_outputs/send_completion_plan_period.txt
+
+00 04 30 * * $BIN_PYTHON DJANGO_MANAGE send_completion_plan_period_3_days >> ~/crontab_outputs/send_completion_plan_period_3_days.txt
+
+00 3 * * sun $BIN_PYTHON DJANGO_MANAGE perform_term_analysis_report >> ~/crontab_outputs/perform_search_term_analysis_report.txt
+
+00 00 */15 * * $BIN_PYTHON DJANGO_MANAGE update_currencies >> ~/crontab_outputs/currencies.txt
