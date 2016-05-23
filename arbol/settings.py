@@ -150,6 +150,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'rest_framework',
     'django_extensions',
+    'arbol',
     'bosque',
 )
 
