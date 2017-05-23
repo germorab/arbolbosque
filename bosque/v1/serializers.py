@@ -23,7 +23,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Categoria
-        fields = ('id', 'nombre', 'descripcion', 'thematic_link')
+        fields = ('id', 'nombre', 'descripcion', 'tematica', 'thematic_link')
 
 
 class ThematicSerializer(serializers.ModelSerializer):
