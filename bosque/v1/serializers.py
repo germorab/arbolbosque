@@ -12,7 +12,7 @@ class ArticleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Articulo
-        fields = ('id', 'titulo', 'contenido', 'categories_link')
+        fields = ('id', 'titulo', 'contenido', 'categoria', 'categories_link')
 
 
 class CategorySerializer(serializers.ModelSerializer):
